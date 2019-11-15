@@ -18,13 +18,6 @@ import "turns";
 
 
 
-function everyOther(){
-	putBeeper();
-	move();
-}
-
-
-
 function paintOddRow(){
 	putBeeper();
 	while(frontIsClear()){
@@ -34,15 +27,6 @@ function paintOddRow(){
 			putBeeper();
 		}
 	}
-}
-
-
-
-function returnToLeftSide(){
-	turnAround();
-	while(frontIsClear()){
-		move();
-	}	
 }
 
 
@@ -59,6 +43,18 @@ function paintEvenRow(){
 
 
 
+
+
+function returnToLeftSide(){
+	turnAround();
+	while(frontIsClear()){
+		move();
+	}	
+}
+
+
+
+
 function nextRowUp(){
 	turnRight();
 	if(frontIsClear()){
@@ -69,7 +65,7 @@ function nextRowUp(){
 
 
 
-function PaintCheckerBoard(){
+function paintCheckerBoard(){
 	while(frontIsClear()){
 		paintOddRow();
 		returnToLeftSide();
