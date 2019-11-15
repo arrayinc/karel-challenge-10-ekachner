@@ -13,3 +13,75 @@ the following pattern in a 5×3 world.
 Another special case you need to consider is that of a world that is only
 one column wide or one row high.
 */
+
+import "turns";
+
+
+
+function everyOther(){
+	putBeeper();
+	move();
+}
+
+
+
+function paintOddRow(){
+	putBeeper();
+	while(frontIsClear()){
+			move();
+		if(frontIsClear()){
+			move();
+			putBeeper();
+		}
+	}
+}
+
+
+
+function returnToLeftSide(){
+	turnAround();
+	while(frontIsClear()){
+		move();
+	}	
+}
+
+
+
+function paintEvenRow(){
+	while(frontIsClear()){
+			move();
+			putBeeper();
+		if(frontIsClear()){
+			move();
+		}
+	}
+}
+
+
+
+function nextRowUp(){
+	turnRight();
+	if(frontIsClear()){
+		move();
+		turnRight();
+	}
+}
+
+
+
+function PaintCheckerBoard(){
+	while(frontIsClear()){
+		paintOddRow();
+		returnToLeftSide();
+		nextRowUp();
+		paintEvenRow();
+		returnToLeftSide();
+		nextRowUp();
+	}
+}
+
+
+
+function Solve(){
+	paintCheckerBoard();
+}
