@@ -74,6 +74,8 @@ function paintCheckerBoard(){
 		returnToLeftSide();
 		nextRowUp();
 	}
+	turnLeft();
+	paintEvenRow();
 }
 
 
